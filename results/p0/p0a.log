@@ -1,0 +1,9 @@
+N=31: random PSL median -11.42 dB, 1e-3 quantile -16.05 dB, min -18.30 dB
+N=64: random PSL median -13.51 dB, 1e-3 quantile -17.32 dB, min -18.80 dB
+N=128: random PSL median -15.69 dB, 1e-3 quantile -18.89 dB, min -20.04 dB
+N=256: random PSL median -17.99 dB, 1e-3 quantile -20.73 dB, min -21.73 dB
+N=31: CAN-from-random PSL mean -21.35 (min -25.07, max -17.05) dB, 19.6 ms/solve; +lp-polish PSL mean -23.38 (min -26.81) dB, +18.9 ms; refs {}
+N=64: CAN-from-random PSL mean -24.82 (min -27.47, max -21.31) dB, 29.5 ms/solve; +lp-polish PSL mean -27.42 (min -29.47) dB, +20.5 ms; refs {'Frank': np.float64(-27.780392691339372), 'P4': np.float64(-24.35820346055263)}
+N=128: CAN-from-random PSL mean -27.19 (min -29.74, max -23.72) dB, 44.1 ms/solve; +lp-polish PSL mean -30.56 (min -33.00) dB, +28.8 ms; refs {}
+N=256: CAN-from-random PSL mean -29.83 (min -32.16, max -26.21) dB, 81.1 ms/solve; +lp-polish PSL mean -32.80 (min -35.39) dB, +52.8 ms; refs {}
+saved /home/user/ISACExploration/results/p0

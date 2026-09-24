@@ -1,0 +1,13 @@
+K=2 iid_random  peak-x(all lags, worst pair) 0.230 | mean-x 0.074 | zero-lag worst 0.105 | peak-x |k|<=3 worst 0.174 | worst PSL -12.4 dB | total ISL 16161 (bound 8192) | 0 ms
+K=2 iid_CAN     peak-x(all lags, worst pair) 0.241 | mean-x 0.075 | zero-lag worst 0.119 | peak-x |k|<=3 worst 0.183 | worst PSL -23.8 dB | total ISL 8826 (bound 8192) | 52 ms
+K=2 MultiCAN    peak-x(all lags, worst pair) 0.182 | mean-x 0.063 | zero-lag worst 0.076 | peak-x |k|<=3 worst 0.127 | worst PSL -18.6 dB | total ISL 8198 (bound 8192) | 79 ms
+K=2 windowGD    peak-x(all lags, worst pair) 0.253 | mean-x 0.072 | zero-lag worst 0.001 | peak-x |k|<=3 worst 0.001 | worst PSL -21.2 dB | total ISL 9324 (bound 8192) | 128 ms
+K=4 iid_random  peak-x(all lags, worst pair) 0.277 | mean-x 0.075 | zero-lag worst 0.174 | peak-x |k|<=3 worst 0.247 | worst PSL -12.1 dB | total ISL 65109 (bound 49152) | 0 ms
+K=4 iid_CAN     peak-x(all lags, worst pair) 0.290 | mean-x 0.074 | zero-lag worst 0.202 | peak-x |k|<=3 worst 0.254 | worst PSL -22.9 dB | total ISL 50390 (bound 49152) | 120 ms
+K=4 MultiCAN    peak-x(all lags, worst pair) 0.246 | mean-x 0.068 | zero-lag worst 0.145 | peak-x |k|<=3 worst 0.202 | worst PSL -14.8 dB | total ISL 49152 (bound 49152) | 100 ms
+K=4 windowGD    peak-x(all lags, worst pair) 0.295 | mean-x 0.072 | zero-lag worst 0.001 | peak-x |k|<=3 worst 0.002 | worst PSL -19.3 dB | total ISL 52119 (bound 49152) | 501 ms
+K=8 iid_random  peak-x(all lags, worst pair) 0.319 | mean-x 0.074 | zero-lag worst 0.251 | peak-x |k|<=3 worst 0.300 | worst PSL -11.5 dB | total ISL 259806 (bound 229376) | 0 ms
+K=8 iid_CAN     peak-x(all lags, worst pair) 0.325 | mean-x 0.075 | zero-lag worst 0.257 | peak-x |k|<=3 worst 0.306 | worst PSL -22.8 dB | total ISL 231879 (bound 229376) | 249 ms
+K=8 MultiCAN    peak-x(all lags, worst pair) 0.288 | mean-x 0.071 | zero-lag worst 0.219 | peak-x |k|<=3 worst 0.257 | worst PSL -12.8 dB | total ISL 229376 (bound 229376) | 129 ms
+K=8 windowGD    peak-x(all lags, worst pair) 0.338 | mean-x 0.071 | zero-lag worst 0.003 | peak-x |k|<=3 worst 0.005 | worst PSL -16.0 dB | total ISL 235979 (bound 229376) | 1953 ms
+saved

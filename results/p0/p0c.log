@@ -1,0 +1,14 @@
+CAN N=64: 44.2 ms, 616 iters
+CAN N=128: 29.4 ms, 400 iters
+CAN N=256: 106.0 ms, 1046 iters
+CAN N=512: 221.5 ms, 1398 iters
+CAN N=1024: 477.1 ms, 1644 iters
+CAN N=2048: 1430.6 ms, 2680 iters
+MultiCAN N=64 K=2: 247.5 ms, 5000 iters
+MultiCAN N=64 K=4: 263.7 ms, 4010 iters
+MultiCAN N=64 K=8: 132.7 ms, 1563 iters
+MultiCAN N=64 K=16: 145.1 ms, 1158 iters
+MultiCAN N=256 K=2: 448.2 ms, 5000 iters
+MultiCAN N=256 K=4: 677.7 ms, 5000 iters
+MultiCAN N=256 K=8: 1157.1 ms, 5000 iters
+MultiCAN N=256 K=16: 1791.0 ms, 4049 iters
