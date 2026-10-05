@@ -5,5 +5,3 @@ venv/
 *.pt
 *.ckpt
 results/**/checkpoints/
-results/p1/p1d_control.log
-results/p1/p1b2.log

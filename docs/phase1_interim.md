@@ -26,12 +26,12 @@ the task statement is falsified in its naive form at N=64.
 | P1a | 30k codes, N=64: CAN from Haar + l_p PSL polish, canonical global phase (4 cores, 805 s) | median PSL −27.49 dB, 92.8% ≤ −25 dB |
 | P1b | Torus CFM, 4-layer transformer (0.84M params), uniform source, wrapped-geodesic path, 6000 steps, bs 256, lr 3e-4 cosine, random global-phase augmentation | loss flat at 3.29 = π²/3 (zero-velocity floor) from step 0; samples Haar-level at NFE 1, 2, 4, 8, 16, 32; nearest-neighbour distance to training set identical to Haar's (10.93 vs 10.92) |
 | P1c | Adam on analytic ISL from Haar, batch 1000, lr ∈ {0.03, 0.1, 0.3} | median PSL after k steps (lr 0.3): −16.2 (1), −19.7 (8), −23.4 (32), −24.8 (64), −25.4 (128), −25.6 dB (256); 0.016 ms per code per step on one thread |
-| P1d | Control: same transformer on the 2-parameter P4 family, lr 1e-3, 800 steps, in-flight sampling | Haar-level through step 600 (run still finishing; no learning) |
+| P1d | Control: same transformer on the 2-parameter P4 family, lr 1e-3, 800 steps, in-flight sampling | Haar-level at every check through step 799 (−13.4 to −13.6 dB); no learning |
 | P1e | PSL of the interpolant φ_t along the wrapped-geodesic path | structure survives only for t > 0.85: median PSL −22.8 dB at t=0.9, −20.6 at 0.85, −18.9 at 0.8, −16.5 at 0.7, Haar (−14.2) at 0.5 |
 | P1f | Discrete alphabets, N=64: Haar M-PSK, CAN+quantise, ISL coordinate descent (CD) from random and from CAN+quantise, continuous CAN | mean PSL (dB): M=2: random −11.8, CAN+quant −13.5, CD −17.8 / −18.3, continuous −24.6. M=4: −13.6, −17.7, −19.8 / −20.1, −24.6. M=8: −13.2, −21.9, −21.8 / −22.9, −24.6. CD costs 17 to 164 ms per code |
 | P1g | PSL-objective single-bit coordinate descent (ISL tie-break), binary N=64, 300 random restarts | PSL histogram {6: 24, 7: 180, 8: 85, 9: 10, 10: 1}; 0% reach PSL ≤ 5; best −20.6 dB vs optimum PSL 4 (−24.1 dB); 2.6 ms per restart; all 300 codes distinct |
 | probes (scratch, not committed as experiments) | MLP on point-mass target; MLP on P4 family; MLP with t ~ Beta(3,1); Euclidean cos/sin FM with Gaussian source; MLP with autocorrelation and spectrum input features | point mass: loss 3.3 → 0.55, samples approach the code (min distance 0.87) but median PSL only −16.4 dB; all P4-family variants: loss stays at the floor, samples Haar-level after 1500 to 3000 steps |
-| P1b2 | Torus CFM with minibatch OT coupling, no augmentation, t ~ Beta(3,1), lr 1e-3, 3000 steps, in-flight evaluation | running at the time of writing; result appended in Section 6 when available |
+| P1b2 | Torus CFM with minibatch OT coupling, no augmentation, t ~ Beta(3,1), lr 1e-3, 3000 steps, in-flight evaluation | loss 2.53 → 2.30 (OT lowers the floor but not the outcome); sampled PSL median −13.45 / −13.59 / −13.47 dB at steps 1000 / 2000 / 3000; final sweep Haar-level at NFE 1 to 32 (−13.4 to −13.5 dB); NN-dist to training 10.92 to 10.93 (= Haar) |
 
 ## 3. Why it fails (mechanism, with the measurements that support each step)
 
@@ -112,7 +112,9 @@ flow). Candidate metric: CA-CFAR detection probability in a two-target scene. Su
 non-analytic, which is a different paper. Guidance with analytic objectives on a learned prior (Phase 0 B) is
 pointless when GD on the same objective from Haar is cheaper and better.
 
-## 6. Pending at the time of writing
+## 6. Final status of the pending runs
 
-P1d (control, 800 steps) and P1b2 (OT coupling, late-time weighting) are still running; their final lines will be
-appended here. Expectation from the probes: both Haar-level.
+Both finished Haar-level, as the probes predicted: P1d (P4-family control) at −13.5 dB after 800 steps; P1b2
+(OT coupling, no augmentation, late-time weighting, lr 1e-3) at −13.4 to −13.5 dB for every NFE from 1 to 32
+after 3000 steps, with nearest-neighbour distance to the training set equal to Haar's. Logs:
+`results/p1/p1d_control.log`, `results/p1/p1b2.log`; outputs `results/p1/p1b2_ot_noaug_tlate_lr0.001.*`.

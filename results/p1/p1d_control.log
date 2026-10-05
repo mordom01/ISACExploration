@@ -1,0 +1,12 @@
+target family PSL -24.358154296875
+/home/user/ISACExploration/isacgen/torusfm.py:48: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.blocks = nn.TransformerEncoder(layer, n_layers)
+it 0 loss 3.389 sampled PSL median -13.57 frac<=-22dB 0.000 (4s)
+it 100 loss 3.301 sampled PSL median -13.38 frac<=-22dB 0.000 (84s)
+it 200 loss 3.291 sampled PSL median -13.48 frac<=-22dB 0.000 (160s)
+it 300 loss 3.292 sampled PSL median -13.39 frac<=-22dB 0.000 (274s)
+it 400 loss 3.294 sampled PSL median -13.63 frac<=-22dB 0.000 (448s)
+it 500 loss 3.311 sampled PSL median -13.50 frac<=-22dB 0.000 (550s)
+it 600 loss 3.285 sampled PSL median -13.64 frac<=-22dB 0.000 (737s)
+it 700 loss 3.302 sampled PSL median -13.50 frac<=-22dB 0.000 (810s)
+it 799 loss 3.299 sampled PSL median -13.51 frac<=-22dB 0.000 (882s)
