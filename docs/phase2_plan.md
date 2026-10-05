@@ -54,8 +54,8 @@ the set-level claim of Phase 0 transplanted to the discrete alphabet.
 
 | Gate | Criterion |
 |---|---|
-| G1 data | search engine yields ≥ 2000 distinct canonical sequences with PSL ≤ 5 at N = 64 within 1 CPU-hour, and ≥ 200 with PSL = 4 |
-| G2 imitation | ≥ 50% of policy samples have PSL ≤ 5 and ≥ 5% have PSL = 4, at ≤ 1 ms per sequence (batched), ≥ 10³ distinct canonical sequences per 10⁴ samples, ≤ 20% overlap with training set |
+| G1 data | search engine yields ≥ 2000 distinct canonical sequences with PSL ≤ 5 at N = 64 within 1 CPU-hour. (Measured 2026-10-05: 4 to 5 PSL-5 sequences per second per core; PSL 4 was not reached in 900 restarts nor by 7890 iterated-local-search kicks in 4 minutes, so PSL 4 at N = 64 is out of reach of this search and is a stretch target for the policy, not a data requirement.) |
+| G2 imitation | ≥ 50% of policy samples have PSL ≤ 6 and ≥ 10% have PSL ≤ 5 at N = 64, at ≤ 1 ms per sequence (batched), ≥ 10³ distinct canonical sequences per 10⁴ samples, ≤ 20% overlap with training set (for reference: random sequences have PSL ≤ 6 with probability ≈ 0 and coordinate descent reaches PSL 6 in 8% of restarts, P1g) |
 | G3 matched-time | at equal wall-clock, policy sampling (optionally + one local-search polish) finds more distinct PSL ≤ 5 sequences than restarted search |
 | G4 transfer | at N = 96 (not in training), median policy PSL ≤ median of restarted search at matched time, and ≥ 1% of samples within 1 of the best-known PSL |
 | G5 codebooks | K = 8 codebooks with windowed cross-correlation (|lag| ≤ 3) peak ≤ 8/64 on ≥ 50% of codebooks at per-code PSL ≤ 6 |
