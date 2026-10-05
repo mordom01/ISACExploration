@@ -7,3 +7,4 @@ venv/
 results/**/checkpoints/
 results/p2/p2a.log
 results/p2/p2b.log
+results/p2/p2c.log
