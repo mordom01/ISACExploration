@@ -1,0 +1,26 @@
+train torch.Size([28000, 64]), held torch.Size([2000, 64]), train PSL median -27.49 dB
+/home/user/ISACExploration/isacgen/torusfm.py:48: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.blocks = nn.TransformerEncoder(layer, n_layers)
+it 0 loss 3.5744 (2s)
+it 500 loss 3.2907 (386s)
+it 1000 loss 3.2895 (743s)
+it 1500 loss 3.2901 (1085s)
+it 2000 loss 3.2911 (1440s)
+it 2500 loss 3.2888 (1797s)
+it 3000 loss 3.2922 (2146s)
+it 3500 loss 3.2915 (2487s)
+it 4000 loss 3.2906 (2832s)
+it 4500 loss 3.2915 (3181s)
+it 5000 loss 3.2902 (3522s)
+it 5500 loss 3.2910 (3861s)
+it 5999 loss 3.2909 (4218s)
+train      PSL median -27.47 mean -27.29 frac<=-25dB 0.930 NN-dist 10.811
+held-out   PSL median -27.51 mean -27.30 frac<=-25dB 0.924 NN-dist 10.820
+Haar       PSL median -13.58 mean -13.49 frac<=-25dB 0.000 NN-dist 10.928
+FM nfe= 1 PSL median -13.56 mean -13.48 frac<=-25dB 0.000 NN-dist 10.923  (1.15 ms/sample CPU)
+FM nfe= 2 PSL median -13.61 mean -13.52 frac<=-25dB 0.000 NN-dist 10.926  (2.25 ms/sample CPU)
+FM nfe= 4 PSL median -13.46 mean -13.40 frac<=-25dB 0.000 NN-dist 10.925  (5.13 ms/sample CPU)
+FM nfe= 8 PSL median -13.41 mean -13.41 frac<=-25dB 0.000 NN-dist 10.925  (12.15 ms/sample CPU)
+FM nfe=16 PSL median -13.53 mean -13.50 frac<=-25dB 0.000 NN-dist 10.941  (18.52 ms/sample CPU)
+FM nfe=32 PSL median -13.51 mean -13.45 frac<=-25dB 0.000 NN-dist 10.934  (37.21 ms/sample CPU)
+saved
