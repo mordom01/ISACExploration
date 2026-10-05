@@ -1,0 +1,5 @@
+train torch.Size([28000, 64]), held torch.Size([2000, 64]), train PSL median -27.49 dB
+/home/user/ISACExploration/isacgen/torusfm.py:48: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.blocks = nn.TransformerEncoder(layer, n_layers)
+it 0 loss 3.5744 (2s)
+it 500 loss 3.2907 (386s)
