@@ -85,10 +85,14 @@ first by imitation on optimal or near-optimal codes (exhaustive-search sets exis
 PSL-objective tabu / evolutionary search for longer and for QPSK), then by reward fine-tuning on −PSL and
 set-level windowed cross-correlation. This avoids the inference problem of density matching (the policy never
 has to invert a noisy interpolant), targets a regime where per-instance search is slow and 4 to 7 dB
-suboptimal, and keeps the ISAC codebook framing and comm-side audit intact. Closest prior to verify before
-claiming novelty: Rezaei, Ahmadi, Naghsh, Aubry, Nayebi, De Maio, "A learning-inspired strategy to design
-binary sequences with good correlation properties: SISO and MIMO radar systems," arXiv:2305.08936 (IEEE
-Xplore 10138370); method not yet read. Gate: at N=64, M=2, sampled codes reach PSL ≤ 5 (−22.1 dB) on ≥ 50% of
+suboptimal, and keeps the ISAC codebook framing and comm-side audit intact. Closest prior: Rezaei, Ahmadi,
+Naghsh, Aubry, Nayebi, De Maio, arXiv:2305.08936 (BiSCorN), which is a network-parameterised *per-instance*
+optimiser for binary WISL/CISL (Adam through a network with binary-valued outputs), reporting ISL and PSL
+against coordinate-descent baselines; it is not a sampler, does not transfer across lengths, and does not
+measure diversity. The classical binary baseline to beat is Lin, Soltanalian, Tang, Li, IEEE TSP 2019
+(unverified) plus PSL-objective CD (P1g). Delta of A″: a learned *sampler* (many distinct near-optimal codes
+per call) trained on exhaustively solved lengths and evaluated by transfer to unsolved lengths and to
+codebooks with windowed cross-correlation constraints. Gate: at N=64, M=2, sampled codes reach PSL ≤ 5 (−22.1 dB) on ≥ 50% of
 samples at ≤ 1 ms per code, with ≥ 10³ distinct codes per 10⁴ samples; PSL-objective coordinate descent
 reaches PSL ≤ 5 on 0% of 300 restarts (best 6) at 2.6 ms per restart (P1g). Because the optimal length-64
 set is fully enumerated (14,872 codes with symmetries), the scientifically meaningful test is transfer: train
