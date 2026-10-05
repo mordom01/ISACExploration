@@ -371,3 +371,24 @@ mean; (2) a regime map that says when a learned sampler beats rejection and rand
    random-restart baseline at matched wall-clock.
 5. Re-implement the conditional WGAN baseline from radarwgan for the same data and metrics (do not retrain the
    full golden run; a small faithful version is enough for a fair table).
+
+---
+
+## 7. Amendment (2026-10-05): comm-side audit of Direction A
+
+See `docs/phase0b_comm_side_audit.md`. Summary of what changed:
+
+- Direction A's comm side is code-shift keying with a generated codebook. The direct prior is Tedesso & Romero
+  (DSP 2018, Gold/Kasami CSK, SER vs the M-ary bound, PACF/periodic AF, LPI) and Eedara, Amin, Hoorfar, Chalise
+  (IEEE TAES 2022, CSK on FH-MIMO). The MIMO drop-in targets are Hassanien's waveform-diversity (TSP 2016) and
+  waveform-permutation (DSP 2018) schemes.
+- We cannot win on rate (log2 K per antenna vs 7 to 16+ bits for MAJoRCom-type index modulation at 4 to 8
+  antennas) or on SER (the Kasami small set is near-simplex and already optimal under perfect timing; windowed
+  orthogonality buys at most 10 log10(1 − ρ_window) ≈ 1.5 dB under timing uncertainty, measured 0.3 to 0.5 dB
+  at K=8). Comm is a parity check.
+- The set potential should target zero-lag ρ = −1/(K−1) (simplex) for coherent receivers, not ρ = 0.
+- The sensing claims survive: mean per-code PSL 3.0 dB (Kasami) to 4.5 dB (Gold) better at K=8, N=63; windowed
+  cross-correlation 0.006 vs 0.17 to 0.29; codebook agility; constraint composition. Latency is "to be measured".
+- Added to the Direction A gate: SER parity under timing uncertainty, simplex-bound parity under perfect timing,
+  and a bits-per-pulse vs sensing-loss figure with Gold/Kasami/Multi-CAN/window-GD/deep-unfolded/generated
+  codebooks and MAJoRCom / permutation rate reference lines. Engineering cost before training: about one week.

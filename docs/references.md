@@ -75,3 +75,28 @@ in this list that appears in the Phase 0 document is marked "unverified" there.
 | Lee2024 | B. Lee, A. B. Das, D. J. Love, C. G. Brinton, J. V. Krogmeier, "Constant Modulus Waveform Design with Space-Time Sidelobe Reduction for DFRC Systems," arXiv:2406.18951, 2024. ADMM and MM solvers. | verified arXiv |
 | Krish2023 | P. Krishnananthalingam, N. T. Nguyen, M. Juntti, "Deep Unfolding Enabled Constant Modulus Waveform Design for Joint Communications and Sensing," arXiv:2306.14702, 2023. | verified arXiv |
 | Hassanien2016 | A. Hassanien et al., "Phase-modulation based dual-function radar-communications," IET Radar, Sonar & Navigation, 2016. | exists (Wiley page) |
+
+## Comm-side baselines for waveform-selection / index-modulation ISAC (added 2026-10-05)
+
+| Key | Citation | Status |
+|---|---|---|
+| Tedesso2018 | T. W. Tedesso, R. Romero, "Code shift keying based joint radar and communications for EMCON applications," Digital Signal Processing, vol. 80, pp. 48-56, 2018. Gold/Kasami CSK; SER vs M-FSK bound; PACF and periodic AF; LPI. | verified (ScienceDirect PII S1051200418303233, NPS Calhoun record); full text not accessed, codebook size unconfirmed |
+| Eedara2022 | I. P. Eedara, M. G. Amin, A. Hoorfar, B. K. Chalise, "Dual-function frequency-hopping MIMO radar system with CSK signaling," IEEE TAES 58(3):1501-1513, 2022. | verified (abstract); BER figures not confirmed |
+| Hassanien2016tsp | A. Hassanien, M. G. Amin, Y. D. Zhang, F. Ahmad, "Dual-function radar-communications: Information embedding using sidelobe control and waveform diversity," IEEE TSP 64(8):2168-2181, 2016. | verified; conference precursor (Villanova PDF) read for the Q-bits-per-pulse scheme and BER metric |
+| Hassanien2018 | A. Hassanien, E. Aboutanios, M. G. Amin, "A dual-function MIMO radar-communication system via waveform permutation," Digital Signal Processing, vol. 83, pp. 118-128, 2018. | exists (secondary citation in search results); not read |
+| Hassanien2016iet | A. Hassanien, M. G. Amin, Y. D. Zhang, F. Ahmad, "Phase-modulation based dual-function radar-communications," IET Radar, Sonar & Navigation 10(8):1411-1421, 2016. | verified (Wiley page) |
+| Huang2020 | (already listed) MAJoRCom, IEEE TSP 68:3423-3438, 2020. Bits/pulse formula (11)-(12), rate bounds Figs. 5-6, decoder BER Fig. 7 read from arXiv:1909.04223. | verified, full text read |
+| Ma2021frac | D. Ma, N. Shlezinger, T. Huang, Y. Liu, Y. C. Eldar, "FRaC: FMCW-based joint radar-communications system via index modulation," IEEE JSTSP 15(6):1348-1364, 2021. | verified, full text read (arXiv:2106.14671) |
+| Ma2021gsm | D. Ma, N. Shlezinger, T. Huang, Y. Shavit, M. Namer, Y. Liu, Y. C. Eldar, "Spatial modulation for joint radar-communications systems: Design, analysis, and hardware prototype," IEEE TVT 70(3):2283-2298, 2021. | verified (TVT, not TWC), full text read (arXiv:2003.10404) |
+| Xu2023him | J. Xu, X. Wang, E. Aboutanios, G. Cui, "Hybrid index modulation for dual-functional radar communications systems," IEEE TVT 72(3):3186-3200, 2023. | verified (Xplore 9940605) |
+| Chen2022im | S. Chen, A. Kaushik, C. Masouros, "Pre-scaling and codebook design for joint radar and communication based on index modulation," IEEE GLOBECOM 2022 (arXiv:2111.10527). | verified, full text read |
+| Sahin2024 | S. Şahin, T. Girici, "Phase coded waveforms for integrated sensing and communication systems," IET Radar, Sonar & Navigation 18(12):2608-2616, 2024. | verified, full text read (MDX repository copy) |
+| Wang2025cl | Q. Wang, G. Fu, P. Chen, Z. Wu, Z. Wang, "Covert waveform for dual-function radar communication system," IEEE Communications Letters 29(2):244-248, 2025. | verified (abstract) |
+| Eedara2021 | I. P. Eedara, A. Hassanien, M. G. Amin, "Performance analysis of dual-function MIMO radar-communications using frequency hopping waveforms and phase shift keying signalling," IET RSN 15(4):402-418, 2021. | verified (Wiley page) |
+| Baxter2018 | W. Baxter, E. Aboutanios, A. Hassanien, "Dual-function MIMO radar-communications via frequency-hopping code selection," Asilomar 2018, pp. 1126-1130. | exists (secondary citations); not read |
+| Wu2022twc | K. Wu, J. A. Zhang, X. Huang, Y. J. Guo, "Integrating secure communications into frequency hopping MIMO radar with improved data rate," IEEE TWC 21(7):5392-5405, 2022. | verified (Xplore 9679388) |
+| Sahin2017parc | C. Sahin, J. Jakabosky, P. M. McCormick, J. G. Metcalf, S. D. Blunt, "A novel approach for embedding communication symbols into physical radar waveforms," IEEE RadarConf 2017. CPM phase-attached to PCFM; BER vs RSM trade via h, m, Ts. | verified, full text read (KU PDF) |
+| Elbir2024spm | A. M. Elbir, A. Celik, A. M. Eltawil, M. G. Amin, "Index modulation for integrated sensing and communications: A signal processing perspective," IEEE Signal Processing Magazine, 2024 (arXiv:2401.08186). Table I of IM-ISAC techniques; CSK named as a special case of IM. | verified, full text read |
+| Chalise2023 | B. K. Chalise, M. G. Amin, G. A. Fabrizio, "Information embedding in DFRC networks through chirp waveform diversity," EURASIP JASP, 2023. | verified (Springer page) |
+| Nowak2016 | M. J. Nowak, M. Wicks, Z. Zhang, et al., "Co-designed radar-communication using linear frequency modulation waveform," IEEE AES Magazine 31(10):28-35, 2016. | verified (secondary) |
+| Zhao2024gsrl | "MIMO radar waveform design for range-ISL optimization via iterative deep unfolding network," IEEE GRSL 2024 (cited as ref. [82] of arXiv:2502.05952). | NOT confirmed at primary source; do not cite until checked |
