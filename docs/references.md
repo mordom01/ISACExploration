@@ -100,3 +100,12 @@ in this list that appears in the Phase 0 document is marked "unverified" there.
 | Chalise2023 | B. K. Chalise, M. G. Amin, G. A. Fabrizio, "Information embedding in DFRC networks through chirp waveform diversity," EURASIP JASP, 2023. | verified (Springer page) |
 | Nowak2016 | M. J. Nowak, M. Wicks, Z. Zhang, et al., "Co-designed radar-communication using linear frequency modulation waveform," IEEE AES Magazine 31(10):28-35, 2016. | verified (secondary) |
 | Zhao2024gsrl | "MIMO radar waveform design for range-ISL optimization via iterative deep unfolding network," IEEE GRSL 2024 (cited as ref. [82] of arXiv:2502.05952). | NOT confirmed at primary source; do not cite until checked |
+
+## Added 2026-10-05 (Phase 1 interim)
+
+| Key | Citation | Status |
+|---|---|---|
+| Coxson2005 | G. E. Coxson, J. Russo, "Efficient exhaustive search for optimal-peak-sidelobe binary codes," IEEE TAES 41(1):302-308, 2005. Optimal PSL = 4 at length 64; 1859 optimal codes. | verified (secondary pages; primary not opened) |
+| Rezaei2023 | O. Rezaei, M. Ahmadi, M. M. Naghsh, A. Aubry, M. M. Nayebi, A. De Maio, "A learning-inspired strategy to design binary sequences with good correlation properties: SISO and MIMO radar systems," arXiv:2305.08936; IEEE Xplore 10138370 (journal not confirmed). | exists; method not yet read; closest prior for Direction A″ |
+| Gat2024 | I. Gat, T. Remez, N. Shaul, F. Kreuk, R. T. Q. Chen, G. Synnaeve, Y. Adi, Y. Lipman, "Discrete Flow Matching," NeurIPS 2024. | verified |
+| Campbell2024 | A. Campbell et al., "Generative Flows on Discrete State-Spaces: Enabling Multimodal Flows with Applications to Protein Co-Design," ICML 2024. | verified |
