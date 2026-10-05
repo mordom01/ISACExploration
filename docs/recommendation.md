@@ -1,8 +1,8 @@
 # Recommendation after Phases 0 to 2
 
-Date: 2026-10-05. Status: Phase 2 DFS-ordering test (P2f) pending at the time of writing; its outcome is recorded
-in `docs/phase2_interim.md` when complete and does not change the recommendation unless it shows a large
-node-count advantage.
+Date: 2026-10-05. Status: all Phase 2 runs complete. The DFS-ordering test showed a 2 to 5× node-count
+advantage for the learned ordering (including one transfer length), not enough to change the recommendation;
+details in `docs/phase2_interim.md` Sections 4 to 6.
 
 ## 1. What the evidence says
 
@@ -21,8 +21,10 @@ from a uniform source are uninformative for 80% of the time axis; constructive s
 compounds small per-chip errors.
 
 What did pass: diversity (every learned sampler produced 100% distinct, novel outputs), sampling cost (0.6 to
-1 ms per sequence), and all of the Phase 0/0b analytic results (set-ISL bound, regime map, CSK parity and the
-simplex-optimality observation).
+1 ms per sequence), all of the Phase 0/0b analytic results (set-ISL bound, regime map, CSK parity and the
+simplex-optimality observation), and two small positive effects at short binary lengths: within-range
+generation of new optimal sequences at ~10× the rate of continued search (N=22, 24), and a 2 to 5× node-count
+reduction when the policy orders an exact DFS (N=24 to 32, including one transfer length).
 
 ## 2. Recommended paper
 

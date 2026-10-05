@@ -1,0 +1,26 @@
+N=16: 10 sequences, PSL hist {2: 10}
+N=18: 2 sequences, PSL hist {2: 2}
+N=20: 3 sequences, PSL hist {2: 3}
+N=22: 239 sequences, PSL hist {3: 239}
+N=24: 416 sequences, PSL hist {3: 416}
+N=26: 241 sequences, PSL hist {3: 241}
+N=28: 2 sequences, PSL hist {2: 2}
+it 0 nll/chip 0.6937 (0s)
+it 250 nll/chip 0.5686 (33s)
+it 500 nll/chip 0.4429 (67s)
+it 750 nll/chip 0.4467 (99s)
+it 1000 nll/chip 0.4376 (131s)
+   [eval it 1000] N=28 sampled PSL hist {2: 166, 3: 25, 4: 138, 5: 413, 6: 484, 7: 386, 8: 224, 9: 110, 10: 38, 11: 8, 12: 7, 13: 1}
+it 1250 nll/chip 0.3766 (165s)
+it 1499 nll/chip 0.4021 (195s)
+   [eval it 1499] N=28 sampled PSL hist {2: 191, 3: 28, 4: 158, 5: 417, 6: 529, 7: 357, 8: 200, 9: 71, 10: 29, 11: 13, 12: 4, 13: 3}
+N=24 T=1.0: PSL hist {3: 1167, 4: 2046, 5: 3397, 6: 1937, 7: 988, 8: 332, 9: 101, 10: 26, 11: 5, 12: 1}; median 5; distinct canonical 6499/10000; overlap with train 0.022; 0.230 ms/seq (4 threads)
+N=24 T=0.8: PSL hist {3: 1506, 4: 2218, 5: 3488, 6: 1713, 7: 734, 8: 232, 9: 83, 10: 17, 11: 7, 12: 2}; median 5; distinct canonical 5168/10000; overlap with train 0.030; 0.222 ms/seq (4 threads)
+N=28 T=1.0: PSL hist {2: 1086, 3: 167, 4: 714, 5: 2249, 6: 2453, 7: 1800, 8: 897, 9: 383, 10: 178, 11: 52, 12: 17, 13: 4}; median 6; distinct canonical 8057/10000; overlap with train 0.000; 0.241 ms/seq (4 threads)
+N=28 T=0.8: PSL hist {2: 1530, 3: 287, 4: 968, 5: 2114, 6: 2288, 7: 1574, 8: 735, 9: 307, 10: 135, 11: 45, 12: 10, 13: 7}; median 6; distinct canonical 6979/10000; overlap with train 0.000; 0.238 ms/seq (4 threads)
+N=32 T=1.0: PSL hist {3: 4, 4: 317, 5: 1142, 6: 2716, 7: 2313, 8: 1712, 9: 918, 10: 511, 11: 224, 12: 80, 13: 38, 14: 15, 15: 4, 16: 5, 17: 1}; median 7; distinct canonical 8980/10000; overlap with train 0.000; 0.265 ms/seq (4 threads)
+N=32 T=0.8: PSL hist {3: 2, 4: 470, 5: 1339, 6: 3015, 7: 2132, 8: 1590, 9: 763, 10: 390, 11: 175, 12: 84, 13: 26, 14: 9, 15: 3, 16: 2}; median 7; distinct canonical 8087/10000; overlap with train 0.000; 0.279 ms/seq (4 threads)
+shotgun N=24 in 9.2s (1 thread): 702 restarts, PSL hist {3: 702}
+shotgun N=28 in 9.7s (1 thread): 667 restarts, PSL hist {2: 26, 3: 623, 4: 18}
+shotgun N=32 in 10.6s (1 thread): 673 restarts, PSL hist {3: 334, 4: 339}
+saved

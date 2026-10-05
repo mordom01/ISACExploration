@@ -1,0 +1,7 @@
+N=16: distinct 55, PSL hist {2: 10, 3: 45}, kept 10 at PSL 2
+N=18: distinct 71, PSL hist {2: 2, 3: 68, 4: 1}, kept 2 at PSL 2
+N=20: distinct 115, PSL hist {2: 3, 3: 112}, kept 3 at PSL 2
+N=22: distinct 244, PSL hist {3: 239, 4: 5}, kept 239 at PSL 3
+N=24: distinct 423, PSL hist {3: 416, 4: 7}, kept 416 at PSL 3
+N=26: distinct 838, PSL hist {3: 241, 4: 597}, kept 241 at PSL 3
+N=28: distinct 1342, PSL hist {2: 2, 3: 574, 4: 766}, kept 2 at PSL 2

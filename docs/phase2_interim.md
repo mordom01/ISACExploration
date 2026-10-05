@@ -1,6 +1,6 @@
 # Phase 2 interim report: constructive policies for low-PSL binary sequences (Direction A″)
 
-Date: 2026-10-05 (updated as runs complete). Scripts `experiments/2026-10-05_p2*.py`, outputs `results/p2/`.
+Date: 2026-10-05 (final). Scripts `experiments/2026-10-05_p2*.py`, outputs `results/p2/`.
 CPU-only container, 4 cores.
 
 ## 1. Status in one paragraph
@@ -16,7 +16,11 @@ Adding the exhaustive-search pruning bound to the sampler (no backtracking) rais
 NLL (0.50 nats) is near the entropy floor of the feasible set itself (≈0.45 nats per chip from its estimated
 size), so imitation is close to the best a factorised left-to-right policy can do: the failure is compounding
 error, not under-training. Gates G2 and G3 fail. The last form of the idea, the policy as the branching
-heuristic inside exact DFS, is being tested (Section 4).
+heuristic inside exact DFS, gives a real but modest node-count advantage (1.4 to 4.5×, including at a transfer
+length) that is outweighed by the per-node cost of the network in this implementation (Section 4). One
+positive observation: at short lengths, inside its training range, the policy emits *new* optimal sequences
+absent from its training set at roughly 10× the rate of continued search (Section 5). Direction A″ is closed
+as a method for the lengths of interest; the paper is the benchmark paper with these results as a section.
 
 ## 2. Measurements
 
@@ -43,11 +47,53 @@ heuristic inside exact DFS, is being tested (Section 4).
 - As an initialiser for local search the policy is worthless (P2g): a few hundred steepest-descent moves erase
   any advantage of starting at PSL 10 instead of 16.
 
-## 4. Pending: the policy as a DFS branching heuristic (P2e/P2f)
+## 4. The policy as a DFS branching heuristic (P2e/P2f)
 
-Fair test in progress: policy trained on exhaustively known optimal sequences at N=16..28, DFS with the bound
-at N=24, 26, 28 (in range) and 30, 32 (transfer), comparing nodes and time to the first solutions under
-lexicographic, random and policy orderings. If the policy ordering reduces nodes-to-first-solution by much more
-than its 7× per-node overhead, the "learned branch-and-bound for sequence design" framing survives; otherwise
-Direction A″ is closed and the paper is the benchmark paper (B″) with the learned-sampler negative results as
-a section.
+Setup: a second policy trained for 1500 steps on the optimal sequences at N=16..28 found by the search
+(913 sequences in total; small sets are intrinsic at these lengths, e.g. only 2 canonical PSL-2 sequences at
+N=28), then DFS with the bound |r_k| − (N−1−n) ≤ T, b_0 fixed, children ordered lexicographically, randomly,
+or by the policy's probability. Budget 120 s per ordering; the policy step costs 7× per node (3.2k vs 22k
+nodes/s). `results/p2/p2f_dfs_short.csv`.
+
+| N, T | lexicographic | random | policy | node advantage of policy |
+|---|---|---|---|---|
+| 20, 2 (complete tree 182k nodes) | first at 4.2k | first at 15.0k | first at 11.6k | none |
+| 24, 3 (20 solutions) | 26.3k nodes | 19.9k | 11.9k | 1.7 to 2.2× |
+| 28, 3 (20 solutions) | 253k; first 78k | 410k; first 208 | 185k; first 28 | 1.4 to 2.2× |
+| 32, 3 (transfer; per 120 s) | 13 in 2.76M | 9 in 2.62M | 6 in 381k | 3.4 to 4.7× per node; first solution at 56k vs 731k / 298k |
+| 36, 3 (per 120 s) | 0 in 2.72M | 2 in 2.56M (first 403k) | 0 in 383k | inconclusive (policy budget below random's first hit) |
+
+Reading: the learned ordering is consistently the most solution-dense per node from N=24 up, and the effect
+survives one step beyond the training range (N=32), but it is a factor of 2 to 5, not the order of magnitude
+needed to pay for a network evaluation per node. A compiled implementation would shrink the per-node overhead
+(the GRU step is ~0.3 ms in PyTorch at batch 1; ~0.03 ms is realistic in C with batched node expansion), at
+which point the policy ordering would win wall-clock by about the node factor. This is a legitimate but small
+contribution ("learned branching for exact PSL search"), and it does not reach the regime the user cares
+about (N ≥ 64, where exact search is infeasible in any ordering).
+
+## 5. Within-length novelty at short lengths (P2h)
+
+`results/p2/p2h_novelty.csv`, 20k samples per length vs. the shotgun search for the same wall-clock, counting
+distinct canonical optimal sequences *not in the training set*:
+
+| N, T | policy: optimal samples / distinct / new | new per second | shotgun: restarts / distinct / new | new per second |
+|---|---|---|---|---|
+| 22, 3 | 1679 / 242 / 58 | 4.6 | 2149 / 146 / 2 | 0.16 |
+| 24, 3 | 2281 / 280 / 92 | 6.6 | 1876 / 234 / 7 | 0.51 |
+| 26, 3 | 1063 / 95 / 0 | 0 | 1923 / 202 / 0 | 0 |
+| 30, 3 (transfer) | 5 / 4 / 4 | 0.23 | 2322 / 78 / 78 | 4.5 |
+| 32, 3 (transfer) | 5 / 4 / 0 | 0 | 2178 / 287 / 0 | 0 |
+
+Inside the training range the policy generalises: it produces optimal sequences the 3-core-minute search had
+not found, 10 to 30× faster than continued search finds new ones (which saturates as its found set grows).
+One length beyond the range the search wins 20×, and by N=64 (P2b/P2c) the policy no longer reaches the
+optimal class at all. Caveat: at N ≤ 74 the optimal sets are exhaustively enumerable, so this has no practical
+value for binary codes; it would matter only if it scaled, and it does not.
+
+## 6. Verdict on Direction A″
+
+Closed as a method for N ≥ 64. Three facts decide it: the per-chip entropy floor of the feasible set (0.45
+nats) means a factorised policy cannot be sharp; compounding errors without backtracking put samples at
+PSL 10 where search gets 5 to 6 in the same time; and exact search with the learned ordering gains only
+2 to 5× in nodes. What survives for the paper: the search-engine yield curves as the classical reference, the
+novelty-and-transfer protocol, and the two small positive effects above, reported as such.

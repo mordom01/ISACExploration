@@ -1,0 +1,17 @@
+N=20 T=2 lexicographic: 3 solutions in 8.5s, 182083 nodes (21432 nodes/s); first solution at 4236 nodes / 0.2 s
+N=20 T=2 random       : 3 solutions in 8.6s, 182083 nodes (21180 nodes/s); first solution at 14965 nodes / 0.72 s
+N=20 T=2 policy       : 3 solutions in 57.8s, 182083 nodes (3153 nodes/s); first solution at 11589 nodes / 3.73 s
+N=24 T=3 lexicographic: 20 solutions in 1.1s, 26293 nodes (23685 nodes/s); first solution at 8348 nodes / 0.35 s
+N=24 T=3 random       : 20 solutions in 0.9s, 19884 nodes (22227 nodes/s); first solution at 510 nodes / 0.02 s
+N=24 T=3 policy       : 20 solutions in 3.8s, 11924 nodes (3152 nodes/s); first solution at 1756 nodes / 0.55 s
+N=28 T=3 lexicographic: 20 solutions in 11.3s, 253418 nodes (22449 nodes/s); first solution at 78486 nodes / 3.49 s
+N=28 T=3 random       : 20 solutions in 18.6s, 409553 nodes (22019 nodes/s); first solution at 208 nodes / 0.01 s
+N=28 T=3 policy       : 20 solutions in 58.0s, 184760 nodes (3184 nodes/s); first solution at 28 nodes / 0.02 s
+N=32 T=3 lexicographic: 13 solutions in 120.0s, 2761800 nodes (23015 nodes/s); first solution at 730667 nodes / 32.05 s
+N=32 T=3 random       : 9 solutions in 120.0s, 2622273 nodes (21852 nodes/s); first solution at 298475 nodes / 13.7 s
+N=32 T=3 policy       : 6 solutions in 120.0s, 380809 nodes (3173 nodes/s); first solution at 55676 nodes / 17.83 s
+N=36 T=3 lexicographic: 0 solutions in 120.0s, 2717639 nodes (22647 nodes/s); first solution at None nodes / None s
+N=36 T=3 random       : 2 solutions in 120.0s, 2558636 nodes (21322 nodes/s); first solution at 402632 nodes / 18.99 s
+N=36 T=3 policy       : 0 solutions in 120.0s, 383047 nodes (3192 nodes/s); first solution at None nodes / None s
+saved
+CHAIN3_DONE
