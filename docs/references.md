@@ -110,3 +110,16 @@ in this list that appears in the Phase 0 document is marked "unverified" there.
 | Lin2019 | R. Lin, M. Soltanalian, B. Tang, J. Li, "Efficient design of binary sequences with low autocorrelation sidelobes," IEEE TSP 67(24), 2019. | cited by Rezaei2023 as [10]; NOT independently verified yet |
 | Gat2024 | I. Gat, T. Remez, N. Shaul, F. Kreuk, R. T. Q. Chen, G. Synnaeve, Y. Adi, Y. Lipman, "Discrete Flow Matching," NeurIPS 2024. | verified |
 | Campbell2024 | A. Campbell et al., "Generative Flows on Discrete State-Spaces: Enabling Multimodal Flows with Applications to Protein Co-Design," ICML 2024. | verified |
+
+## Added 2026-10-05 (Phase 2: discrete-phase sequence design)
+
+| Key | Citation | Status |
+|---|---|---|
+| Leukhin2013 | A. N. Leukhin, E. N. Potekhin, "Optimal peak sidelobe level sequences up to length 74," European Radar Conference 2013, pp. 495-498; also "Binary sequences with minimum peak sidelobe level up to length 68," arXiv:1212.4930. Exhaustive search; table of counts of non-equivalent optimal sequences. | verified |
+| Nunn2008 | C. J. Nunn, G. E. Coxson, "Best-known autocorrelation peak sidelobe levels for binary codes of length 71 to 105," IEEE TAES 44(1):392-395, 2008. | verified |
+| Dimitrov2020 | M. Dimitrov, T. Baicheva, N. Nikolov, "On the generation of long binary sequences with record-breaking PSL values," IEEE Signal Processing Letters 27:1904-1908, 2020 (arXiv:2104.01154). O(n) time/memory stochastic search; PSL < sqrt(n). Related: arXiv:2003.07057, 2107.09801, 2104.10477; "Low autocorrelation binary sequences: best-known PSL values," IEEE Access 2021 (Xplore 9422706). | SPL verified; IEEE Access table exists (authors not confirmed) |
+| Mow2015 | W. H. Mow, K.-L. Du, W. H. Wu, "New evolutionary search for long low autocorrelation binary sequences," IEEE TAES 51(1):290-303, 2015 (erratum on author order). | verified |
+| Lin2019 | R. Lin, M. Soltanalian, B. Tang, J. Li, "Efficient design of binary sequences with low autocorrelation sidelobes," IEEE TSP 67(24):6397-6410, 2019. | verified (now confirmed) |
+| Brest2024 | J. Brest, B. Bošković, "An efficient algorithm for designing long aperiodic binary sequences with low auto-correlation sidelobes," IEEE Access 12, 2024. | exists (ADS record); not read |
+| Rezaei2023 | (see above) BiSCorN: per-instance network optimiser for binary WISL. | verified |
+| Learned-policy prior art | Searched 2026-10-05 for neural / RL / autoregressive construction of low-PSL binary sequences: none found. | negative search result; re-check before submission |

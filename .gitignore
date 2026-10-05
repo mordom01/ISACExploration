@@ -5,3 +5,4 @@ venv/
 *.pt
 *.ckpt
 results/**/checkpoints/
+results/p2/p2a.log
