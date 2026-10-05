@@ -6,7 +6,8 @@ uniform); only the joint across chips does. Two changes that reduce the conditio
 the target distribution: (1) minibatch optimal-transport coupling of source and data samples under the wrapped
 L2 metric (OT-CFM, Tong et al., TMLR 2024, here on the flat torus), and (2) keeping the data in canonical global
 phase (phi[0]=0) without the random-rotation augmentation used in P1b. Also prints sampled median PSL every
-1000 steps so progress is visible. Usage: python <script> <steps> [ot|indep] [aug|noaug]
+1000 steps so progress is visible. Usage: python <script> <steps> [ot|indep] [aug|noaug] [tunif|tlate] [lr]
+(tlate: t ~ Beta(3,1), concentrating training near t=1 where the target field is informative.)
 Outputs: results/p1/p1b2_<tag>.{log,csv,png,pt}
 """
 import sys, pathlib, time, math
@@ -22,14 +23,16 @@ torch.manual_seed(0); np.random.seed(0)
 steps = int(sys.argv[1]) if len(sys.argv) > 1 else 6000
 coupling = sys.argv[2] if len(sys.argv) > 2 else "ot"
 aug = (sys.argv[3] if len(sys.argv) > 3 else "noaug") == "aug"
-tag = f"{coupling}_{'aug' if aug else 'noaug'}"
+tlate = (sys.argv[4] if len(sys.argv) > 4 else "tunif") == "tlate"
+lr = float(sys.argv[5]) if len(sys.argv) > 5 else 3e-4
+tag = f"{coupling}_{'aug' if aug else 'noaug'}_{'tlate' if tlate else 'tunif'}_lr{lr:g}"
 OUT = pathlib.Path(__file__).resolve().parents[1] / "results" / "p1"
 D = np.load(OUT / "singles_N64.npz")
 P = torch.from_numpy(D["phases"]).float(); N = P.shape[1]
 train, held = P[:-2000], P[-2000:]
 torch.set_num_threads(4)
 model = TorusVelocityNet(N, d_model=128, n_layers=4, n_heads=4)
-opt = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=0.01)
+opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
 sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, steps)
 bs = 256
 
@@ -47,7 +50,7 @@ for it in range(steps):
     phi0 = torch.rand(bs, N) * 2 * math.pi - math.pi
     if coupling == "ot":
         phi0, phi1 = ot_pair(phi0, phi1)
-    t = torch.rand(bs)
+    t = torch.rand(bs) ** (1 / 3) if tlate else torch.rand(bs)
     u = wrap(phi1 - phi0)
     phit = wrap(phi0 + t[:, None] * u)
     loss = ((model(phit, t) - u) ** 2).mean()
