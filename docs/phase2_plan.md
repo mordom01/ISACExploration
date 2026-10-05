@@ -8,8 +8,8 @@ Binary (later QPSK) sequences b ∈ {±1}^N with small aperiodic peak sidelobe l
 and codebooks of K such sequences with windowed cross-correlation constraints (the CSK / index-modulation ISAC
 setting audited in Phase 0b). Facts that define the regime:
 
-- Optimal PSL is known by exhaustive search up to N = 74 (Leukhin & Potekhin 2013): PSL = 4 for 64 ≤ N ≤ 82
-  region reported in the literature; for N = 64 there are 1859 balance-inequivalent optimal codes (Coxson &
+- Optimal PSL is known by exhaustive search up to N = 74 (Leukhin & Potekhin 2013); best-known PSL = 4 holds for
+  all N ≤ 82 and PSL = 5 for all N ≤ 105 (Nunn & Coxson 2008); for N = 64 there are 1859 balance-inequivalent optimal codes (Coxson &
   Russo 2005). Beyond N ≈ 74 only best-known values exist (Nunn & Coxson 2008; Dimitrov et al. 2020/2021).
 - Cheap local search is far from optimal: PSL-objective coordinate descent from random starts never reached
   PSL ≤ 5 in 300 restarts at N = 64 (P1g, best 6, mean −18.9 dB vs optimum −24.1 dB), at 2.6 ms per restart.
@@ -57,7 +57,7 @@ the set-level claim of Phase 0 transplanted to the discrete alphabet.
 | G1 data | search engine yields ≥ 2000 distinct canonical sequences with PSL ≤ 5 at N = 64 within 1 CPU-hour. (Measured 2026-10-05: 4 to 5 PSL-5 sequences per second per core; PSL 4 was not reached in 900 restarts nor by 7890 iterated-local-search kicks in 4 minutes, so PSL 4 at N = 64 is out of reach of this search and is a stretch target for the policy, not a data requirement.) |
 | G2 imitation | ≥ 50% of policy samples have PSL ≤ 6 and ≥ 10% have PSL ≤ 5 at N = 64, at ≤ 1 ms per sequence (batched), ≥ 10³ distinct canonical sequences per 10⁴ samples, ≤ 20% overlap with training set (for reference: random sequences have PSL ≤ 6 with probability ≈ 0 and coordinate descent reaches PSL 6 in 8% of restarts, P1g) |
 | G3 matched-time | at equal wall-clock, policy sampling (optionally + one local-search polish) finds more distinct PSL ≤ 5 sequences than restarted search |
-| G4 transfer | at N = 96 (not in training), median policy PSL ≤ median of restarted search at matched time, and ≥ 1% of samples within 1 of the best-known PSL |
+| G4 transfer | at N = 96 (not in training), median policy PSL ≤ median of restarted search at matched time, and ≥ 1% of samples within 1 of the best-known PSL. Best-known references (Nunn & Coxson 2008, confirmed 2026-10-05): PSL 4 for all N ≤ 82, PSL 5 for all N ≤ 105; so N = 80 → 4, N = 96 → 5 |
 | G5 codebooks | K = 8 codebooks with windowed cross-correlation (|lag| ≤ 3) peak ≤ 8/64 on ≥ 50% of codebooks at per-code PSL ≤ 6 |
 
 ## 5. Baselines (all classical, all implemented in-repo)
