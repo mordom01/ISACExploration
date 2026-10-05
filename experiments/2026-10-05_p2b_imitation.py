@@ -29,6 +29,9 @@ for N in TRAIN_N:
     if not f.exists():
         print(f"missing {f}; skipping length {N}"); continue
     d = np.load(f); S = d["seqs"].astype(np.float32) * 2 - 1; P = d["psl"]
+    # sharpen the imitation target: keep only the best PSL class when it is populous enough, else best+1
+    best = P.min(); keep = P <= (best if (P == best).sum() >= 2000 else best + 1)
+    S, P = S[keep], P[keep]
     data[N] = (torch.from_numpy(S), P)
     train_canon[N] = set(map(tuple, d["seqs"].tolist()))
     print(f"N={N}: {S.shape[0]} sequences, PSL hist {dict(zip(*[x.tolist() for x in np.unique(P, return_counts=True)]))}")
