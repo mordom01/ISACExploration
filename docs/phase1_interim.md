@@ -29,6 +29,7 @@ the task statement is falsified in its naive form at N=64.
 | P1d | Control: same transformer on the 2-parameter P4 family, lr 1e-3, 800 steps, in-flight sampling | Haar-level through step 600 (run still finishing; no learning) |
 | P1e | PSL of the interpolant φ_t along the wrapped-geodesic path | structure survives only for t > 0.85: median PSL −22.8 dB at t=0.9, −20.6 at 0.85, −18.9 at 0.8, −16.5 at 0.7, Haar (−14.2) at 0.5 |
 | P1f | Discrete alphabets, N=64: Haar M-PSK, CAN+quantise, ISL coordinate descent (CD) from random and from CAN+quantise, continuous CAN | mean PSL (dB): M=2: random −11.8, CAN+quant −13.5, CD −17.8 / −18.3, continuous −24.6. M=4: −13.6, −17.7, −19.8 / −20.1, −24.6. M=8: −13.2, −21.9, −21.8 / −22.9, −24.6. CD costs 17 to 164 ms per code |
+| P1g | PSL-objective single-bit coordinate descent (ISL tie-break), binary N=64, 300 random restarts | PSL histogram {6: 24, 7: 180, 8: 85, 9: 10, 10: 1}; 0% reach PSL ≤ 5; best −20.6 dB vs optimum PSL 4 (−24.1 dB); 2.6 ms per restart; all 300 codes distinct |
 | probes (scratch, not committed as experiments) | MLP on point-mass target; MLP on P4 family; MLP with t ~ Beta(3,1); Euclidean cos/sin FM with Gaussian source; MLP with autocorrelation and spectrum input features | point mass: loss 3.3 → 0.55, samples approach the code (min distance 0.87) but median PSL only −16.4 dB; all P4-family variants: loss stays at the floor, samples Haar-level after 1500 to 3000 steps |
 | P1b2 | Torus CFM with minibatch OT coupling, no augmentation, t ~ Beta(3,1), lr 1e-3, 3000 steps, in-flight evaluation | running at the time of writing; result appended in Section 6 when available |
 
@@ -88,8 +89,11 @@ suboptimal, and keeps the ISAC codebook framing and comm-side audit intact. Clos
 claiming novelty: Rezaei, Ahmadi, Naghsh, Aubry, Nayebi, De Maio, "A learning-inspired strategy to design
 binary sequences with good correlation properties: SISO and MIMO radar systems," arXiv:2305.08936 (IEEE
 Xplore 10138370); method not yet read. Gate: at N=64, M=2, sampled codes reach PSL ≤ 5 (−22.1 dB) on ≥ 50% of
-samples at ≤ 1 ms per code, with ≥ 10³ distinct codes per 10⁴ samples; coordinate descent reaches PSL 5 on
-< 10% in P1f-type runs. Compute: data from search, hours on CPU; policy training hours on the 5070 Ti.
+samples at ≤ 1 ms per code, with ≥ 10³ distinct codes per 10⁴ samples; PSL-objective coordinate descent
+reaches PSL ≤ 5 on 0% of 300 restarts (best 6) at 2.6 ms per restart (P1g). Because the optimal length-64
+set is fully enumerated (14,872 codes with symmetries), the scientifically meaningful test is transfer: train
+on exhaustively solved lengths ≤ 74 and evaluate at lengths 80 to 128 and on QPSK, where no enumeration exists
+and the best-known values come from heavy stochastic search. Compute: data from search, hours on CPU; policy training hours on the 5070 Ti.
 
 **B″: the benchmark paper.** The regime map, the set-ISL bound and its consequence for "diversity", the
 random-restart GD cost curves, the CSK parity result and the failure analysis of Section 3 form a methodology
