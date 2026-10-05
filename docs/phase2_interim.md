@@ -27,6 +27,7 @@ heuristic inside exact DFS, is being tested (Section 4).
 | P2a | training data, 3 workers × 8 min per length | N=32: 3261 (415 at optimal 3); N=40: 25k; N=48: 7.4k at 4 (2 at optimal 3); N=56: 51k at 5 (154 at optimal 4); N=64: 7.5k at 5 (2 at optimal 4); N=72: 39k at 6 (238 at 5) |
 | P2b | imitation, 4000 steps, bs 128, NLL/chip 0.693 → 0.496 | N=64: median PSL 10 (T=1.0 and 0.8), 0.14 to 0.24% at PSL 6, 10⁴/10⁴ distinct, 0 train overlap, 0.6 ms/seq. N=80: median 13 (12 at T=0.8). N=96: median 15. Matched CPU-time shotgun: N=64 100% at PSL ≤ 6 (16% at 5); N=80 100% ≤ 7 (22% at 6); N=96 100% ≤ 8 (44% at 7) |
 | P2c | policy + pruning bound (no backtracking) vs uninformed + pruning vs shotgun, same CPU-seconds | N=64 T=5: policy 1 distinct (0.4/s), uninformed 0, shotgun 56 (21/s). T=6: policy 18 (7.6/s), uninformed 0, shotgun 333 (141/s). N=80, 96: policy 0 at every T tested; shotgun 63 at T=6 (N=80), 164 at T=7 (N=96) |
+| P2g | policy samples vs random sequences as initialisations for the same shotgun descent, 300 starts each | N=64: policy init median PSL 10 → final {5: 43, 6: 257}, 363 iterations; random init median 16 → final {5: 41, 6: 259}, 372 iterations. N=80: policy {6: 50, 7: 250}; random {5: 1, 6: 52, 7: 247}. No benefit: the search forgets the initialisation |
 | P2d sanity | DFS with the bound, orderings lexicographic / random / policy, N=13 and 20 | correct (Barker-13 found). N=20 T=2 complete tree = 182k nodes; first solution at 4.2k (lex), 2.3k (random), 16.3k (policy) nodes; policy costs 7× per node (2.8k vs 20k nodes/s) |
 
 ## 3. Interpretation
@@ -39,6 +40,8 @@ heuristic inside exact DFS, is being tested (Section 4).
   objective evaluation and local moves; its cost per candidate (28 ms) buys a guaranteed local optimum.
 - The pruning bound |r_k| − (N−1−n) ≤ T is too loose early in the sequence to steer a no-backtracking sampler,
   and the learned policy adds too little to it.
+- As an initialiser for local search the policy is worthless (P2g): a few hundred steepest-descent moves erase
+  any advantage of starting at PSL 10 instead of 16.
 
 ## 4. Pending: the policy as a DFS branching heuristic (P2e/P2f)
 
