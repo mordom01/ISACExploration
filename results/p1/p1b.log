@@ -3,3 +3,5 @@ train torch.Size([28000, 64]), held torch.Size([2000, 64]), train PSL median -27
   self.blocks = nn.TransformerEncoder(layer, n_layers)
 it 0 loss 3.5744 (2s)
 it 500 loss 3.2907 (386s)
+it 1000 loss 3.2895 (743s)
+it 1500 loss 3.2901 (1085s)
