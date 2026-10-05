@@ -32,7 +32,7 @@ def dfs(N, T, ordering, k_solutions=20, budget=BUDGET, rng=None):
     def children(n, r_before, hstate):
         """return ordered list of chips and the policy hidden state after consuming the step-n features."""
         f = torch.cat([torch.from_numpy(r_before[None, :]).float() / math.sqrt(N),
-                       torch.tensor([[b[n - 1] if n > 0 else 0.0]]), torch.tensor([[n / N]]), torch.tensor([[N / N_MAX]])], -1)
+                       torch.tensor([[b[n - 1] if n > 0 else 0.0]]), torch.tensor([[n / N]]), torch.tensor([[N / N_MAX]])], -1).float()
         if ordering == "policy":
             with torch.no_grad():
                 h, hs = model.gru(model.inp(f)[:, None, :], hstate)
@@ -72,14 +72,15 @@ def dfs(N, T, ordering, k_solutions=20, budget=BUDGET, rng=None):
 
 rows = []
 rng = np.random.default_rng(0)
-for N, T, k in [(40, 3, 20), (48, 3, 20), (64, 5, 20), (64, 4, 3)]:
+CONFIGS = eval(sys.argv[3]) if len(sys.argv) > 3 else [(40, 3, 20), (48, 3, 20), (64, 5, 20), (64, 4, 3)]
+for N, T, k in CONFIGS:
     for ordering in ["lexicographic", "random", "policy"]:
         sols, nodes, secs = dfs(N, T, ordering, k_solutions=k, rng=rng)
         first = sols[0] if sols else (None, None)
         print(f"N={N} T={T} {ordering:13s}: {len(sols)} solutions in {secs:.1f}s, {nodes} nodes ({nodes/secs:.0f} nodes/s); "
               f"first solution at {first[0]} nodes / {first[1] if first[1] is None else round(first[1],2)} s", flush=True)
         rows.append((N, T, ordering, len(sols), secs, nodes, first[0], first[1]))
-with open(OUT / "p2d_dfs.csv", "w") as f:
+with open(OUT / (sys.argv[4] if len(sys.argv) > 4 else "p2d_dfs.csv"), "w") as f:
     f.write("N,T,ordering,solutions,seconds,nodes,first_nodes,first_seconds\n")
     for r in rows: f.write(",".join(str(v) for v in r) + "\n")
 print("saved")

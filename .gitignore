@@ -6,3 +6,6 @@ venv/
 *.ckpt
 results/**/checkpoints/
 results/p2/p2a.log
+results/p2/p2e.log
+results/p2/p2e_train.log
+results/p2/p2f.log
