@@ -1,0 +1,18 @@
+background: 100000 GMSK frames; cost mean 1.3908, PSL(excl) median -9.6 dB, min -16.8 dB (4s)
+tilt beta=   0: KL 0.000 nats, E[cost] 1.3908, E[PSL] -9.6 dB, ESS 100000, detector AUC 0.501
+tilt beta=   5: KL 0.940 nats, E[cost] 0.8430, E[PSL] -11.6 dB, ESS 24597, detector AUC 0.610
+tilt beta=  10: KL 2.146 nats, E[cost] 0.6762, E[PSL] -12.5 dB, ESS 4638, detector AUC 0.645
+tilt beta=  20: KL 4.501 nats, E[cost] 0.5122, E[PSL] -13.6 dB, ESS 227, detector AUC 0.733
+tilt beta=  40: KL 8.299 nats, E[cost] 0.3776, E[PSL] -14.8 dB, ESS 6, detector AUC 0.919
+tilt beta=  80: KL 11.017 nats, E[cost] 0.3254, E[PSL] -15.7 dB, ESS 1, detector AUC 0.998
+tilt beta= 160: KL 11.498 nats, E[cost] 0.3205, E[PSL] -15.8 dB, ESS 1, detector AUC 1.000
+tilt beta= 320: KL 11.513 nats, E[cost] 0.3204, E[PSL] -15.8 dB, ESS 1, detector AUC 1.000
+trunc q=1.000: KL 0.000 nats, E[cost] 1.3908, E[PSL] -9.6 dB, kept 100000, detector AUC 0.501
+trunc q=0.500: KL 0.693 nats, E[cost] 0.9831, E[PSL] -10.8 dB, kept 50000, detector AUC 0.574
+trunc q=0.200: KL 1.609 nats, E[cost] 0.8053, E[PSL] -11.7 dB, kept 20000, detector AUC 0.628
+trunc q=0.100: KL 2.303 nats, E[cost] 0.7210, E[PSL] -12.2 dB, kept 10000, detector AUC 0.641
+trunc q=0.050: KL 2.996 nats, E[cost] 0.6566, E[PSL] -12.6 dB, kept 5000, detector AUC 0.658
+trunc q=0.020: KL 3.912 nats, E[cost] 0.5901, E[PSL] -13.1 dB, kept 2000, detector AUC 0.675
+trunc q=0.010: KL 4.605 nats, E[cost] 0.5490, E[PSL] -13.4 dB, kept 1000, detector AUC 0.694
+trunc q=0.005: KL 5.298 nats, E[cost] 0.5131, E[PSL] -13.6 dB, kept 500, detector AUC 0.725
+saved

@@ -1,0 +1,20 @@
+it 0 D 1.415 R-CE 2.082 adv 0.681 ISL 17.1844 | gen PSL median -0.6 dB (0s)
+it 250 D 1.178 R-CE 0.966 adv 0.842 ISL 1.8667 | gen PSL median -9.7 dB (19s)
+it 500 D 1.184 R-CE 1.058 adv 0.781 ISL 2.0439 | gen PSL median -8.4 dB (37s)
+it 750 D 1.135 R-CE 0.942 adv 0.856 ISL 1.6801 | gen PSL median -6.9 dB (56s)
+it 1000 D 1.023 R-CE 0.918 adv 0.952 ISL 1.5085 | gen PSL median -9.2 dB (74s)
+it 1250 D 1.088 R-CE 0.704 adv 1.047 ISL 1.4114 | gen PSL median -8.5 dB (92s)
+it 1500 D 1.071 R-CE 0.877 adv 1.223 ISL 1.5557 | gen PSL median -8.0 dB (111s)
+it 1750 D 1.016 R-CE 0.954 adv 0.930 ISL 1.4936 | gen PSL median -9.3 dB (151s)
+it 2000 D 1.070 R-CE 0.851 adv 1.543 ISL 1.3857 | gen PSL median -9.0 dB (390s)
+it 2250 D 1.170 R-CE 1.005 adv 0.955 ISL 1.5000 | gen PSL median -10.4 dB (409s)
+it 2500 D 1.094 R-CE 0.860 adv 1.027 ISL 1.7488 | gen PSL median -9.3 dB (427s)
+it 2750 D 1.031 R-CE 0.742 adv 1.166 ISL 1.5691 | gen PSL median -8.4 dB (445s)
+it 2999 D 1.011 R-CE 0.843 adv 0.775 ISL 1.8760 | gen PSL median -8.7 dB (463s)
+GAN                            detector AUC 1.000 | codebook PSL mean -8.7 dB (worst -6.0) | SER corr-rx @0/4/8/12 dB: 0.494/0.137/0.003/0.000
+random GMSK                    detector AUC 0.516 | codebook PSL mean -10.4 dB (worst -9.1) | SER corr-rx @0/4/8/12 dB: 0.484/0.127/0.002/0.000
+searched GMSK (best of 2000)   detector AUC 0.998 | codebook PSL mean -15.5 dB (worst -15.1) | SER corr-rx @0/4/8/12 dB: 0.491/0.144/0.005/0.000
+CAN codes                      detector AUC 1.000 | codebook PSL mean -24.3 dB (worst -22.7) | SER corr-rx @0/4/8/12 dB: 0.546/0.154/0.001/0.000
+GAN with learned receiver R (fresh z per symbol): SER @0/4/8/12 dB: 0.621/0.381/0.122/0.011
+GAN fresh-z waveforms: PSL median -8.6 dB, 10th pct -11.6, 90th pct -6.0; GMSK random PSL median -9.5 dB
+saved

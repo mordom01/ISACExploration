@@ -1,0 +1,39 @@
+MCMC beta=   0: E[c] 1.3854  E[PSL] -9.6 dB  (32s)
+MCMC beta=   5: E[c] 0.8422  E[PSL] -11.6 dB  (64s)
+MCMC beta=  10: E[c] 0.6726  E[PSL] -12.5 dB  (95s)
+MCMC beta=  20: E[c] 0.5246  E[PSL] -13.6 dB  (125s)
+MCMC beta=  40: E[c] 0.4964  E[PSL] -13.8 dB  (157s)
+MCMC beta=  80: E[c] 0.5192  E[PSL] -13.6 dB  (188s)
+MCMC beta= 160: E[c] 0.5360  E[PSL] -13.4 dB  (220s)
+MCMC beta=   0: KL(Q||P) 0.00 nats  E[PSL] -9.6 dB  worst-of-8 PSL (median over draws) -6.9 dB  detector AUC 0.500
+MCMC beta=   5: KL(Q||P) 1.36 nats  E[PSL] -11.6 dB  worst-of-8 PSL (median over draws) -9.1 dB  detector AUC 0.600
+MCMC beta=  10: KL(Q||P) 2.63 nats  E[PSL] -12.5 dB  worst-of-8 PSL (median over draws) -10.1 dB  detector AUC 0.658
+MCMC beta=  20: KL(Q||P) 4.85 nats  E[PSL] -13.6 dB  worst-of-8 PSL (median over draws) -11.3 dB  detector AUC 0.681
+MCMC beta=  40: KL(Q||P) 5.70 nats  E[PSL] -13.8 dB  worst-of-8 PSL (median over draws) -11.4 dB  detector AUC 0.679
+MCMC beta=  80: KL(Q||P) 4.33 nats  E[PSL] -13.6 dB  worst-of-8 PSL (median over draws) -11.2 dB  detector AUC 0.685
+MCMC beta= 160: KL(Q||P) 2.30 nats  E[PSL] -13.4 dB  worst-of-8 PSL (median over draws) -11.0 dB  detector AUC 0.689
+/home/user/ISACExploration/experiments/2026-10-06_p3d_boltzmann_covert.py:125: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print(f"  VAN beta={b} it {it}: E_q[c] {c.mean():.4f}  KL(q||Q_beta) {float((logq + b * c).mean()) + logZ[b]:.2f} nats ({time.time()-t1:.0f}s)", flush=True)
+  VAN beta=10 it 0: E_q[c] 1.3429  KL(q||Q_beta) 4.13 nats (0s)
+  VAN beta=10 it 500: E_q[c] 1.1840  KL(q||Q_beta) 2.97 nats (65s)
+  VAN beta=10 it 1000: E_q[c] 1.1316  KL(q||Q_beta) 2.60 nats (130s)
+  VAN beta=10 it 1500: E_q[c] 1.0904  KL(q||Q_beta) 2.47 nats (196s)
+  VAN beta=10 it 2000: E_q[c] 1.0195  KL(q||Q_beta) 1.95 nats (263s)
+  VAN beta=10 it 2499: E_q[c] 1.0174  KL(q||Q_beta) 1.92 nats (330s)
+VAN  beta=  10: KL(q||P) 1.08 nats, KL(q||Q_beta) 1.98, E[c] 1.0248, E[PSL] -11.0 dB, detector AUC 0.694, 0.036 ms/frame; CSK SER @0/4/8/12 dB 0.487/0.131/0.003/0.000
+  VAN beta=40 it 0: E_q[c] 1.4192  KL(q||Q_beta) 31.23 nats (0s)
+  VAN beta=40 it 500: E_q[c] 1.1113  KL(q||Q_beta) 20.58 nats (67s)
+  VAN beta=40 it 1000: E_q[c] 0.6374  KL(q||Q_beta) 12.73 nats (133s)
+  VAN beta=40 it 1500: E_q[c] 0.3780  KL(q||Q_beta) 7.72 nats (200s)
+  VAN beta=40 it 2000: E_q[c] 0.3719  KL(q||Q_beta) 7.26 nats (265s)
+  VAN beta=40 it 2499: E_q[c] 0.3626  KL(q||Q_beta) 6.90 nats (330s)
+VAN  beta=  40: KL(q||P) 17.69 nats, KL(q||Q_beta) 7.02, E[c] 0.3720, E[PSL] -15.4 dB, detector AUC 0.992, 0.034 ms/frame; CSK SER @0/4/8/12 dB 0.649/0.435/0.275/0.209
+  VAN beta=160 it 0: E_q[c] 1.3964  KL(q||Q_beta) 135.36 nats (0s)
+  VAN beta=160 it 500: E_q[c] 1.1176  KL(q||Q_beta) 96.68 nats (68s)
+  VAN beta=160 it 1000: E_q[c] 0.3512  KL(q||Q_beta) -9.00 nats (133s)
+  VAN beta=160 it 1500: E_q[c] 0.3509  KL(q||Q_beta) -9.39 nats (198s)
+  VAN beta=160 it 2000: E_q[c] 0.3513  KL(q||Q_beta) -9.50 nats (265s)
+  VAN beta=160 it 2499: E_q[c] 0.3514  KL(q||Q_beta) -9.52 nats (330s)
+VAN  beta= 160: KL(q||P) 22.30 nats, KL(q||Q_beta) -9.52, E[c] 0.3516, E[PSL] -14.7 dB, detector AUC 1.000, 0.035 ms/frame; CSK SER @0/4/8/12 dB 0.876/0.866/0.873/0.868
+saved
