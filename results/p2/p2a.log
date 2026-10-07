@@ -1,0 +1,6 @@
+N=32: 3261 distinct canonical sequences in 481s (3 workers); PSL hist {3: 415, 4: 2846}; kept 3261 with PSL<=4
+N=40: 28045 distinct canonical sequences in 484s (3 workers); PSL hist {3: 55, 4: 25211, 5: 2779}; kept 25266 with PSL<=4
+N=48: 59419 distinct canonical sequences in 486s (3 workers); PSL hist {3: 2, 4: 7412, 5: 52005}; kept 7414 with PSL<=4
+N=56: 56171 distinct canonical sequences in 485s (3 workers); PSL hist {4: 154, 5: 50771, 6: 5246}; kept 50925 with PSL<=5
+N=64: 49841 distinct canonical sequences in 485s (3 workers); PSL hist {4: 2, 5: 7533, 6: 42306}; kept 7535 with PSL<=5
+N=72: 43495 distinct canonical sequences in 485s (3 workers); PSL hist {5: 238, 6: 38772, 7: 4485}; kept 39010 with PSL<=6
